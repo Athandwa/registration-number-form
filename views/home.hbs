@@ -1,18 +1,24 @@
 <h1>Registratin_Numbers</h1>
 <div class="container-fluid">
     <form action="/" method="Post">
-  <input type="text" name="name" value="" placeholder="Please Enter Number Plate" required="">
+  <input type="text" name="name" value="" placeholder="Please Enter Number Plate"><br><br>
   <label class="radioButton">
-          <input type="radio" class="RegNumbers" name="RegNumbers" value="Cape Town" required="">Cape Town<b>
+          <input type="radio" class="RegNumbers" name="RegNumbers" value="Cape Town">Cape Town<b>
       </label>
       <label class="radioButton">
-          <input type="radio" class="RegNumbers"name="RegNumbers" value="Bellville" required=""><b>Bellville</b>
+          <input type="radio" class="RegNumbers"name="RegNumbers" value="Bellville"><b>Bellville</b>
       </label>
       <label class="radioButton">
-          <input type="radio" class="RegNumbers" name="RegNumbers" value="Paarl" required=""><b>Paarl</b>
+          <input type="radio" class="RegNumbers" name="RegNumbers" value="Paarl"><b>Paarl</b>
       </label><br><br>
-      <button type="submit" class="RegButton" name="button" require="">Add</button><br><br>
+      <button type="submit" class="btn btn-primary" name="button">Add</button><br><br>
+      <!-- <p class="display">{{display}}</p> -->
+
+      {{#each regNumber}}
+      <ul>
+        <ul>{{name}}</ul>
+      </ul>
+    {{/each}}
+
 </form>
 </div>
-
-<!-- <p class="display">{{display}}</p> -->

@@ -11,3 +11,6 @@ h1{
   box-sizing: border-box;
   text-align: center;
 }
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
