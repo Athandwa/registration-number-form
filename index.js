@@ -31,11 +31,37 @@ app.get('/', function(req, res) {
 
 app.post('/', function (req, res) {
     var regNum = req.body.name;
+    var regButtons = req.body.name;
     var registrations = "";
-    registrations = regNum;
-      res.render('home', {
-          regNumber: registrations
-      })
+    // registrations = regNum;
+    models.regModel.create({
+      name: regNum
+    }, function (err) {
+      if (err) {
+        if (err.code === 11000) {
+          models.regModel.findOne({name: regNum}, function(error) {
+            if (error){
+              console.log(error);
+            }
+
+
+            else {
+              models.regModel.find({}, function(err, results) {
+                if (err) {
+                  console.log(err);
+                }else {
+                  res.render('home', {
+                      regNumber: results
+                  });
+                  //console.log(results);
+                }
+              })
+            }
+          })
+
+        }
+      }
+    })
 });
 
 

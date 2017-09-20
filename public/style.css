@@ -1,5 +1,9 @@
 h1{
   text-align: center;
+  font-style: italic;
+  text-shadow: 2px 2px #FF0000;
+  font: Georgia, serif
+  /*text-shadow: 2px;*/
 }
 .container-fluid {
   position: relative;
@@ -13,4 +17,10 @@ h1{
 }
 .selector-for-some-widget {
   box-sizing: content-box;
+}
+.textbox{
+  margin-top: 20px;
+}
+.w3-row-padding{
+  background-color: 	#FFFFF0
 }

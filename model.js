@@ -5,11 +5,11 @@ module.exports = function(mongoURL) {
     const regNumbers = mongoose.Schema({
         name: String
     })
-    regNumbers.index({
-        name: 1
-    }, {
-        unique: true
-    })
+    // regNumbers.index({
+    //     name: 1
+    // }, {
+    //     unique: true
+    // })
     const regModel = mongoose.model("regModel", regNumbers)
 
     return {
