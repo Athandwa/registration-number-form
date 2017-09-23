@@ -1,33 +1,48 @@
 <div class="container-fluid">
   <div class="w3-row-padding">
 
+    <div class="errorMessage">
+  {{#if messages.error}}
+  {{messages.error}}
+  {{/if}}
+</div>
+<br>
+<br>
+
 <div class="container">
   <form action="/" method="Post">
 <input type="text" name="name" class="textbox" value="" placeholder="Please Enter Number Plate"><br><br>
-<label class="radioButton">
-    <input type="radio" class="RegNumbers" name="RegNumbers" value="Paarl"><b>Cape Town</b>
-</label>
-    <label class="radioButton">
-        <input type="radio" class="RegNumbers"name="RegNumbers" value="Bellville"><b>Bellville</b>
-    </label>
-    <label class="radioButton">
-        <input type="radio" class="RegNumbers" name="RegNumbers" value="Paarl"><b>Paarl</b>
-    </label><br><br>
-    <label class="radioButton">
-        <input type="radio" class="RegNumbers" name="RegNumbers" value="Show All"><b>Show All</b>
-    </label><br><br>
-    <button type="submit" class="btn btn-primary" name="button">Add</button><br><br>
+<button type="submit" class="btn btn-success" name="button">Add</button><br><br>
+</form>
 
-    {{#each regNumber}}
+<form class="RadioButton" action="/filter" method="post">
+
+  <label class="radioButton">
+    <input type="radio" class="RegNumbers" name="RegNumbers" value="CA"><b>Cape Town</b>
+  </label>
+  <label class="radioButton">
+    <input type="radio" class="RegNumbers"name="RegNumbers" value="CY"><b>Bellville</b>
+  </label>
+  <label class="radioButton">
+    <input type="radio" class="RegNumbers" name="RegNumbers" value="CJ"><b>Paarl</b>
+  </label><br><br>
+
+ <button type="submit" class="btn btn-warning" name="button">Show</button><br><br>
+
+  </form>
+  <form class="filter" action="/filter" method="post">
+
+  </form>
+
+  <form class="" action="/All" method="post">
+      <button type="submit" class="btn btn-primary" name="button">Show All</button>
+  </form><br><br>
+
+  {{#each regNumber}}
     <ul>
-      <ul class="regPlates">{{name}}</ul>
+      <li class="regPlates">{{name}}</li>
     </ul>
   {{/each}}
-</form>
 </div>
-
-
 </div>
-
-
 </div>
