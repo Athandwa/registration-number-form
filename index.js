@@ -1,12 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const exphbs = require("express-handlebars");
+const form = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/test";
+// const mongoUrl = "mongodb://localhost/test";
 const Models = require("./model");
 const models = Models(mongoURL);
-
 
 
 var app = express();
@@ -27,13 +28,18 @@ app.use(session({
 }));
 app.use(flash());
 
-app.use(express.static('public'));
-
-app.engine('hbs', exphbs({
-    defaultLayout: 'main',
-    extname: 'hbs'
+// setting rendering engine
+app.engine("hbs", exphbs({
+    defaultLayout: "main",
+    extname: "hbs"
 }));
-app.set('view engine', 'hbs');
+app.use(express.static("public"));
+app.use(express.static("views"))
+app.use(form.urlencoded({
+    extended: true
+}));
+app.set("view engine", "hbs")
+
 
 app.get('/', function(req, res) {
     res.render('home');
@@ -94,7 +100,6 @@ app.post('/filter', function(req, res) {
     })
 });
 
-
 app.post('/All', function(req, res) {
     models.regModel.find({}, function(err, all) {
         if (err) {
@@ -109,9 +114,7 @@ app.post('/All', function(req, res) {
 });
 
 
-app.listen(3000);
-
-// var port = process.env.PORT || 3000;
-// app.listen('port', function() {
-//     console.log("Server running at http://localhost:" + port + "/");
-// })
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Server running at http://localhost:" + port + "/");
+});
