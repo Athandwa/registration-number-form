@@ -14,7 +14,7 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
-    "mongodb": "^2.2.31",
+    "mongodb": "^3.6.2",
     "mongoose": "^4.11.11"
   },
   "devDependencies": {},
